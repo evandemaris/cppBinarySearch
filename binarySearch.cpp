@@ -8,8 +8,10 @@ int BinarySearch(int myArray[], int arrayLength, int target, int left=0) {
 	int midpoint;
 	//Loop:
 	if (arrayLength > 1) { //If there is more than one element
-		midpoint = arrayLength / 2 + 1; //Assign the midpoint of the elements as the last index divided by two. Integer division may place this too low, as in 1/2=0, so add 1.
-		if (myArray[midpoint] == target) { return midpoint; }
+		midpoint = (arrayLength - 1 ) / 2 + 1; //Assign the midpoint of the elements as the last index divided by two. Integer division may place this too low, as in 1/2=0, so add 1.
+
+		cout << (myArray[midpoint] == target) << endl; //hangs on midpoint 2, arraylength 2
+		if (myArray[midpoint] == target) { return midpoint;  cout << "The end is not nigh?"; }
 		if (myArray[midpoint] < target) { BinarySearch(myArray, arrayLength, target, midpoint); }
 		if (myArray[midpoint] > target) { BinarySearch(myArray, arrayLength/2+1, target, left); }
 	}
